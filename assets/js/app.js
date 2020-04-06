@@ -193,12 +193,12 @@ function generateAllCharts(i, index, xlabels, ylabels) {
             index
           ].count.toLocaleString()}`,
           data: ylabels,
-          backgroundColor: ["rgba(255, 99, 132, 0.3)"],
-          borderColor: ["rgba(255, 99, 132, 1)"],
+          backgroundColor: ["rgba(0, 197, 167, 0.3)"],
+          borderColor: ["rgba(0, 197, 167, 1)"],
           lineTension: 0.4,
           borderWidth: 1,
           pointRadius: 2,
-          pointBackgroundColor: "rgba(255, 99, 132, 0.8)"
+          pointBackgroundColor: "rgba(0, 197, 167, 0.8)"
         }
       ]
     },
