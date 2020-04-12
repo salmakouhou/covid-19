@@ -21,16 +21,7 @@ var firebaseConfig = {
   };  // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-const firebaseConfig = {
-    apiKey: "AIzaSyArsZT6la12dxI9VBIpVcPjYXiG5uBqK4A",
-    authDomain: "covid19-salmakouhou.firebaseapp.com",
-    databaseURL: "https://covid19-salmakouhou.firebaseio.com",
-    projectId: "covid19-salmakouhou",
-    storageBucket: "covid19-salmakouhou.appspot.com",
-    messagingSenderId: "339630467989",
-    appId: "1:339630467989:web:2e342709f790a0dc8ea49c",
-    measurementId: "G-FHLKN1FCL6"
-  };
+
 
 
 
