@@ -10,7 +10,7 @@ $(document).ready(() => {
   getAllCountryGraphs();
 });
 
-Const firebaseConfig = {
+var firebaseConfig = {
     apiKey: "AIzaSyArsZT6la12dxI9VBIpVcPjYXiG5uBqK4A",
     authDomain: "covid19-salmakouhou.firebaseapp.com",
     databaseURL: "https://covid19-salmakouhou.firebaseio.com",
