@@ -39,7 +39,7 @@ $(document).ready(function(){
   var date = new Date();
   var currentdate=date.getDate()+"-"+(dategetMonth()+1)+"-"+date.getFullYear();
   var firestore=firebase.firestore();
-  fetch('https://corona-virus-stats-herokuapp.com/api/v1/cases/countries-search?limit=200').then return response.json();
+  fetch('https://pomber.github.io/covid19/timeseries.json').then return response.json();
 }).then(function(obj){
   var confirmed=Array();
   var deaths=Array();
