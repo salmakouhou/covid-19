@@ -9,9 +9,8 @@ $(document).ready(() => {
   getLatestInfo();
   getAllCountryGraphs();
 });
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-var firebaseConfig = {
+
+Const firebaseConfig = {
     apiKey: "AIzaSyArsZT6la12dxI9VBIpVcPjYXiG5uBqK4A",
     authDomain: "covid19-salmakouhou.firebaseapp.com",
     databaseURL: "https://covid19-salmakouhou.firebaseio.com",
