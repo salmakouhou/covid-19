@@ -10,6 +10,15 @@ $(document).ready(() => {
   getAllCountryGraphs();
 });
 
+var admin = require("firebase-admin");
+
+var serviceAccount = require("path/to/serviceAccountKey.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://covid19-salmakouhou.firebaseio.com"
+});
+
 var firebaseConfig = {
     apiKey: "AIzaSyArsZT6la12dxI9VBIpVcPjYXiG5uBqK4A",
     authDomain: "covid19-salmakouhou.firebaseapp.com",
