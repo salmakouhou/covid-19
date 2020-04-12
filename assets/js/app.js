@@ -35,30 +35,7 @@ for (h=0;h<pays[0].length;h++){
   }
   ref.update(data);
 }
-$(document).ready(function(){
-  var date = new Date();
-  var currentdate=date.getDate()+"-"+(dategetMonth()+1)+"-"+date.getFullYear();
-  var firestore=firebase.firestore();
-  fetch('https://pomber.github.io/covid19/timeseries.json').then return response.json();
-}).then(function(obj){
-  var confirmed=Array();
-  var deaths=Array();
-  var recovered=Array();
-  var countries=Array;
-  for(var i=0;i<obj.data.rows.length;i++){
-    countries.push(obj.data.rows[i].country);
-    confirmed.push(obj.data.rows[i].total_cases);
-    recovered.push(obj.data.rows[i].total_recovered);
-    deaths.push(obj.data.rows[i].total_deaths);
-  }
-  for(var j=0;j<deaths.length;j++){
-    var docRef=firebase.doc(currentdate+"/"+countries[j];
-    docRef.set({
-          confirmed: confirmed[j],
-          recovered: recovered[j],
-          deaths:deaths[j]
-});
-  }
+
 
 function getLatestInfo() {
   $.ajax({
