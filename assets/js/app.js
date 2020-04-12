@@ -32,7 +32,42 @@ const firebaseConfig = {
   appId: "1:339630467989:web:2e342709f790a0dc8ea49c",
   measurementId: "G-FHLKN1FCL6"
 };
-const database = firebase.database();
+for (h=0;h<pays[0].length;h++){
+  var database = firebase.database();
+  var ref = database.ref('corona');
+  var data = {
+    country: pays[0][h],
+    time: day[h],
+    confirmed: conf[h],
+    deaths: death[h],
+    recovered: recov[h],
+  }
+  ref.update(data);
+}
+$(document).ready(function(){
+  var date = new Date();
+  var currentdate=date.getDate()+"-"+(dategetMonth()+1)+"-"+date.getFullYear();
+  var firestore=firebase.firestore();
+  fetch('https://corona-virus-stats-herokuapp.com/api/v1/cases/countries-search?limit=200').then return response.json();
+}).then(function(obj){
+  var confirmed=Array();
+  var deaths=Array();
+  var recovered=Array();
+  var countries=Array;
+  for(var i=0;i<obj.data.rows.length;i++){
+    countries.push(obj.data.rows[i].country);
+    confirmed.push(obj.data.rows[i].total_cases);
+    recovered.push(obj.data.rows[i].total_recovered);
+    deaths.push(obj.data.rows[i].total_deaths);
+  }
+  for(var j=0;j<deaths.length;j++){
+    var docRef=firebase.doc(currentdate+"/"+countries[j];
+    docRef.set({
+          confirmed: confirmed[j],
+          recovered: recovered[j],
+          deaths:deaths[j]
+});
+  }
 
 function getLatestInfo() {
   $.ajax({
