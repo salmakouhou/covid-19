@@ -32,7 +32,7 @@ const firebaseConfig = {
   appId: "1:339630467989:web:2e342709f790a0dc8ea49c",
   measurementId: "G-FHLKN1FCL6"
 };
-var database = firebase.database();
+const database = firebase.database();
 
 function getLatestInfo() {
   $.ajax({
