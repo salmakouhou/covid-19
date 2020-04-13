@@ -24,7 +24,18 @@ var firebaseConfig = {
   };  // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-
+for (h=0;h<pays[0].length;h++){
+  var database = firebase.database();
+  var ref = database.ref('corona'); 
+  var data = { 
+    country: pays[0][h],
+    time: day[h],
+    confirmed: conf[h],
+    deaths: death[h], 
+    recovered: recov[h],
+  }
+  ref.update(data); 
+}
 
 
 
