@@ -10660,13 +10660,6 @@ header.masthead h1 {
   border-bottom-right-radius: 0px;
 }
 
-.btn-starred {
-  background-color: #f8f9fa !important ;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-}
 
 .active {
   background-color: #e0e0e0 !important;
@@ -10744,9 +10737,7 @@ header.masthead h1 {
   .global-stats-hr {
     width: 80%;
   }
-  .stats-box {
-    width: 50%;
-  }
+  
   .number-global-stats {
     font-size: 16px;
     font-weight: 400 !important;
@@ -10760,9 +10751,7 @@ header.masthead h1 {
   font-size: 20px;
 }
 
-#starred-none{
-  font-size: 20px;
-}
+
 
 .notice-section{
   display: flex;
