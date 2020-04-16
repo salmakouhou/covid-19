@@ -35,11 +35,7 @@
     "Liberation Mono", "Courier New", monospace;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+
 
 html {
   font-family: sans-serif;
@@ -10628,15 +10624,6 @@ header.masthead h1 {
   z-index: 2;
 }
 
-.btn-star {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  padding: 2px;
-  margin-right: 8px;
-  margin-top: 2px;
-  border-radius: 50%;
-}
 
 .btn:focus,
 .btn:active {
@@ -10644,32 +10631,8 @@ header.masthead h1 {
   box-shadow: none;
 }
 
-.btn-star-active {
-  background: #ffc107;
-  padding: 1px !important;
-}
 
-.btn-star:active {
-  background: #ffc107 !important;
-}
 
-.fa-star {
-  font-size: 20px;
-  color: #f5f5f5;
-}
-
-.fa-star path {
-  stroke: #ffc107;
-  stroke-width: 30px;
-}
-
-.fa-star:hover path {
-  stroke: #ffc107;
-}
-
-.fa-star:hover {
-  font-size: 22px;
-}
 
 .country-names {
   color: #666666;
