@@ -42,6 +42,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     
     <script src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"></script>
+    
     <!-- The core Firebase JS SDK is always required and must be listed first -->
         <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
@@ -49,6 +50,54 @@
             https://firebase.google.com/docs/web/setup#available-libraries -->
         <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
         
+        <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyArsZT6la12dxI9VBIpVcPjYXiG5uBqK4A",
+    authDomain: "covid19-salmakouhou.firebaseapp.com",
+    databaseURL: "https://covid19-salmakouhou.firebaseio.com",
+    projectId: "covid19-salmakouhou",
+    storageBucket: "covid19-salmakouhou.appspot.com",
+    messagingSenderId: "339630467989",
+    appId: "1:339630467989:web:2e342709f790a0dc8ea49c",
+    measurementId: "G-FHLKN1FCL6"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        </script>
+        <script>
+            $(document).ready(function(){
+            var date = new Date();
+            var currentdate= date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear();
+            var firestore=firebase.firestore();
+
+            fetch('https://corona-api.com/countries').then(function(response){
+                    return response.json();
+            }).then(function(obj){
+                var confirmed=Array();
+                var deaths=Array();
+                var recovered=Array();
+                var countries=Array();
+                for(var i=0;i<obj.data.length;i++){
+                    countries.push(obj.data[i].name);
+                    confirmed.push(obj.data[i].latest_data.confirmed);
+                    recovered.push(obj.data[i].latest_data.recovered);
+                    deaths.push(obj.data[i].latest_data.deaths);
+                }
+                for(var j=0 ;j<deaths.length;j++){
+                    var docRef=firestore.doc(currentdate+"/"+countries[j]);
+                    docRef.set({
+                        confirmed: confirmed[j],
+                        recovered:recovered[j],
+                        deaths:deaths[j]
+                    });
+                }
+            });
+        })
+        </script>
+    
+    
     <script>(function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
                 'gtm.start':
