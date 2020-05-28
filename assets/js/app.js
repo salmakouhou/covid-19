@@ -9,60 +9,8 @@ $(document).ready(() => {
   getLatestInfo();
   getAllCountryGraphs();
 });
-$(document).ready(function(){
-    var date = new Date();
-    var currentdate= date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear();
-    var firestore=firebase.firestore();
-
-    fetch('https://corona-api.com/countries').then(function(response){
-            return response.json();
-    }).then(function(obj){
-        var confirmed=Array();
-        var deaths=Array();
-        var recovered=Array();
-        var countries=Array();
-        for(var i=0;i<obj.data.length;i++){
-            countries.push(obj.data[i].name);
-            confirmed.push(obj.data[i].latest_data.confirmed);
-            recovered.push(obj.data[i].latest_data.recovered);
-            deaths.push(obj.data[i].latest_data.deaths);
-        }
-        for(var j=0 ;j<deaths.length;j++){
-            var docRef=firestore.doc(currentdate+"/"+countries[j]);
-            docRef.set({
-                confirmed: confirmed[j],
-                recovered:recovered[j],
-                deaths:deaths[j]
-            });
-        }
-    });
-})
 
 
-var firebaseConfig = {
-    apiKey: "AIzaSyArsZT6la12dxI9VBIpVcPjYXiG5uBqK4A",
-    authDomain: "covid19-salmakouhou.firebaseapp.com",
-    databaseURL: "https://covid19-salmakouhou.firebaseio.com",
-    projectId: "covid19-salmakouhou",
-    storageBucket: "covid19-salmakouhou.appspot.com",
-    messagingSenderId: "339630467989",
-    appId: "1:339630467989:web:2e342709f790a0dc8ea49c",
-    measurementId: "G-FHLKN1FCL6"
-  };  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-for (h=0;h<pays[0].length;h++){
-  var database = firebase.database();
-  var ref = database.ref('corona'); 
-  var data = { 
-    country: pays[0][h],
-    time: day[h],
-    confirmed: conf[h],
-    deaths: death[h], 
-    recovered: recov[h],
-  }
-  ref.update(data); 
-}
 
 
 
