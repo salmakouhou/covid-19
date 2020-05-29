@@ -69,7 +69,7 @@
             $(document).ready(function(){
             var date = new Date();
             var currentdate= date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear();
-           
+            const firestore=firebase.firestore();
 
             fetch('https://corona-api.com/countries').then(function(response){
                     return response.json();
