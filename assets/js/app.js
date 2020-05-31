@@ -92,6 +92,7 @@ function getAllCountryGraphs() {
       getSortedCountryArray(data);
       generateGraphCanvas();
       generateGraphContent(data);
+    storeData(data);
     })
     .then(() => {
       userFunctions();
