@@ -10,41 +10,52 @@ $(document).ready(() => {
   getLatestInfo();
   getAllCountryGraphs();
 });
-var firebaseConfig = {
-            apiKey: "AIzaSyArsZT6la12dxI9VBIpVcPjYXiG5uBqK4A",
-    authDomain: "covid19-salmakouhou.firebaseapp.com",
-    databaseURL: "https://covid19-salmakouhou.firebaseio.com",
-    projectId: "covid19-salmakouhou",
-    storageBucket: "covid19-salmakouhou.appspot.com",
-    messagingSenderId: "339630467989",
-    appId: "1:339630467989:web:2e342709f790a0dc8ea49c",
-    measurementId: "G-FHLKN1FCL6"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
-       for (let i= 0 ; i < covidData.countryList.length; i++) {
+function storeData(data) {
+    var countryList = Object.keys(data);
+    const confirmed_case_today = [];
+    const death_today = [];
+    const recovered_until_today = [];
+    const date=[];
+    data['Afghanistan'].forEach(function(item, index) {
+        date.push(item["date"]);
+    });
+
+    countryList.forEach(function(country,index) {
         
-        const rootRef = database.ref(covidData.countryList[i]);
+        confirmed_case_today.push(data[country][data[country].length - 1]['confirmed'])
+        death_today.push(data[country][data[country].length - 1]['deaths'])
+        recovered_until_today.push(data[country][data[country].length - 1]['recovered'])
+    })
+    var firebaseConfig = {
+        apiKey: "AIzaSyArsZT6la12dxI9VBIpVcPjYXiG5uBqK4A",
+        authDomain: "covid19-salmakouhou.firebaseapp.com",
+        databaseURL: "https://covid19-salmakouhou.firebaseio.com",
+        projectId: "covid19-salmakouhou",
+        storageBucket: "covid19-salmakouhou.appspot.com",
+        messagingSenderId: "339630467989",
+        appId: "1:339630467989:web:2e342709f790a0dc8ea49c",
+        measurementId: "G-FHLKN1FCL6"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    const database = firebase.database();
+   for (let i= 0 ; i < countryList.length; i++) {
     
-     
-        
-    
-        rootRef.child(covidData.date.length-1).set({
+    const rootRef = database.ref(countryList[i]);
 
+    rootRef.child(date.length-1).set({
 
-            confirmed : covidData.confirmed_case_today[i],
-            date : covidData.date[covidData.date.length-1] ,
-            deaths:  covidData.death_today[i],
-            recovered : covidData.recovered_until_today[i]
-            
-            
+        confirmed : confirmed_case_today[i],
+        date : date[date.length-1] ,
+        deaths:  death_today[i],
+        recovered : recovered_until_today[i]
+    });
 
-        });
+    console.log("saveeeed "+countryList[i]);
 
-        console.log("saveeeed "+covidData.countryList[i]);
-
-    }
+}
+}
 
 
 
