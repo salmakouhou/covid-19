@@ -22,16 +22,28 @@ var firebaseConfig = {
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
-       
-            rootRef.child(covidData.date.length-1).set({
-                confirmed : covideData.confirmed_case_today[i],
-                date : covidData.date[covidData.date.length-1],
-                deaths: covidData.death_today[i],
-                recovered : covidData.recovered_until_today[i]
-            });
-            console.log("saved "+covidData.countryList[i]);
+       for (let i= 0 ; i < covidData.countryList.length; i++) {
+        
+        const rootRef = database.ref(covidData.countryList[i]);
+    
+     
+        
+    
+        rootRef.child(covidData.date.length-1).set({
 
 
+            confirmed : covidData.confirmed_case_today[i],
+            date : covidData.date[covidData.date.length-1] ,
+            deaths:  covidData.death_today[i],
+            recovered : covidData.recovered_until_today[i]
+            
+            
+
+        });
+
+        console.log("saveeeed "+covidData.countryList[i]);
+
+    }
 
 
 
