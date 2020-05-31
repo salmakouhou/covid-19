@@ -6,7 +6,7 @@ const lastUpdated = document.getElementById("last-updated");
 let starredCountries = [];
 let sortedCountryArray = [];
 import firebase from 'firebase/app';
-import { auth } from 'firebase/app';
+import 'firebase/auth';
 import 'firebase/firestore';
 $(document).ready(() => {
   getLatestInfo();
