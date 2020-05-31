@@ -5,7 +5,6 @@ const recovered = document.getElementById("total-recovered");
 const lastUpdated = document.getElementById("last-updated");
 let starredCountries = [];
 let sortedCountryArray = [];
-import firebase from 'firebase/app';
 
 $(document).ready(() => {
   getLatestInfo();
