@@ -52,7 +52,7 @@ function storeData(data) {
         recovered : recovered_until_today[i]
     });
 
-    console.log("saveeeed "+countryList[i]);
+    console.log("saved "+countryList[i]);
 
 }
 }
